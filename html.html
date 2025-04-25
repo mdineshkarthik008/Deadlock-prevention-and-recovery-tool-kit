@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deadlock Prevention and Recovery Toolkit</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Deadlock Prevention and Recovery Toolkit</h1>
+            <p class="subtitle">Tools and techniques to prevent, detect, and recover from deadlocks in concurrent systems</p>
+        </header>
+
+        <div class="toolkit-section">
+            <div class="card">
+                <h2>Prevention Techniques</h2>
+                <p>Implement strategies to prevent deadlocks before they occur by violating one of the four necessary conditions.</p>
+                <button class="btn" id="preventionBtn">Learn Prevention</button>
+            </div>
+
+            <div class="card">
+                <h2>Avoidance Techniques</h2>
+                <p>Use algorithms like Banker's algorithm to ensure the system never enters an unsafe state.</p>
+                <button class="btn" id="avoidanceBtn">Learn Avoidance</button>
+            </div>
+
+            <div class="card">
+                <h2>Detection & Recovery</h2>
+                <p>Detect deadlocks when they occur and implement recovery mechanisms to restore normal operation.</p>
+                <button class="btn" id="detectionBtn">Learn Detection</button>
+            </div>
+        </div>
+
+        <div class="simulator">
+            <h2>Deadlock Simulation</h2>
+            
+            <div class="form-group">
+                <label for="processCount">Number of Processes:</label>
+                <input type="number" id="processCount" min="2" max="10" value="3">
+            </div>
+
+            <div class="form-group">
+                <label for="resourceCount">Number of Resources:</label>
+                <input type="number" id="resourceCount" min="1" max="10" value="2">
+            </div>
+
+            <div class="form-group">
+                <label for="strategy">Deadlock Handling Strategy:</label>
+                <select id="strategy">
+                    <option value="prevention">Prevention</option>
+                    <option value="avoidance">Avoidance</option>
+                    <option value="detection">Detection & Recovery</option>
+                </select>
+            </div>
+
+            <button class="btn" id="generateBtn">Generate Scenario</button>
+            <button class="btn btn-success" id="runBtn">Run Simulation</button>
+            <button class="btn btn-danger" id="resetBtn">Reset</button>
+
+            <div id="processTableContainer" style="display: none;">
+                <h3>Process Allocation and Request</h3>
+                <table class="process-table" id="processTable">
+                    <thead>
+                        <tr>
+                            <th>Process</th>
+                            <th>Allocated</th>
+                            <th>Request</th>
+                            <th>Available</th>
+                        </tr>
+                    </thead>
+                    <tbody id="processTableBody"></tbody>
+                </table>
+            </div>
+
+            <div id="resultContainer" style="display: none;">
+                <h3>Simulation Result</h3>
+                <div class="result" id="result"></div>
+                <div class="resource-graph" id="resourceGraph"></div>
+                <div class="log" id="log"></div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Deadlock Prevention and Recovery Toolkit &copy; 2023 | For educational purposes only</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
